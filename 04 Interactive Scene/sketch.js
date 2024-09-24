@@ -16,6 +16,17 @@ function draw()
 
   fill(255, 255, 0);
   circle(mouseX, windowHeight*4.75/10, 200); //Sun
+
+  let starCount = 0;
+  randomSeed(random(0, 10));
+  while(starCount < 100)
+  {
+    fill(255, 255, 255);
+    let x = random(0, width);
+    let y = random(0, height);
+    circle(x, y, 10); 
+    starCount++;
+  }
   
   //Foreground
   fill(200, 200, 200);
@@ -34,4 +45,7 @@ function draw()
   rect(windowWidth/2+45, windowHeight*6.2/10, 50, 15); //Flag Colour One
   fill(78, 173, 19);
   rect(windowWidth/2+45, windowHeight*6.35/10, 50, 15); //Flag Colour Two
+
+  fill(255, 255, 255);
+  text("Ethan Spearey", windowWidth*9/10, windowHeight*9/10);
 }

@@ -1,6 +1,8 @@
 // Drawing with Loops
 // Ethan Spearey
 // 2024-09-18
+//
+// More functions to create a fun interactive screen using Java Script
 
 function setup()
 {
