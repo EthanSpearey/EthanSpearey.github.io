@@ -31,4 +31,14 @@ function generateTerrain()
     time += interval
     rect(x, height, rectWidth, -rectHeight);
   }
+
+  
+}
+
+function drawFlag(x, y)
+{
+  // Flag and Pole
+  fill(0, 0, 0);
+  rect(x, y, 5, 20);
+  rect(x+10, y, 7, 10);
 }
