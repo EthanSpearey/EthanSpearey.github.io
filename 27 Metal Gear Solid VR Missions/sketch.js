@@ -2,11 +2,15 @@
 // Ethan Spearey
 // 2024-11-21
 
+let titleScreen;
 let solidSnake;
-let playerX, playerY;
+let sprites;
+let playerX;
+let playerY;
 
 function preload()
 {
+  titleScreen = loadImage("assets/Title Screen.png");
   for (let i = 1; i < 34; i++)
   {
     sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Spawn Animation" + i + ".png"));
@@ -60,9 +64,8 @@ function setup()
 
 function draw()
 {
-  background(255);
-
-  image(solidSnake, windowWidth/2, windowHeight/2);
+  background(110);
+  image(titleScreen, 0, 0);
 }
 
 function keyPressed()
