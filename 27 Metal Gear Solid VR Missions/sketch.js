@@ -15,14 +15,14 @@ function preload()
   {
     sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Spawn Animation" + i + ".png"));
   }
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle North Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle North-East Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle East Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle South-East Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle South Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle South-West Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle West Animation.png"));
-  solidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake Idle North-West Animation.png"));
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North-East Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle East Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South-East Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South-West Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle West Animation.png");
+  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North-West Animation.png");
   for (let i = 1; i < 8; i++)
   {
     sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run North Animation" + i + ".png"));
