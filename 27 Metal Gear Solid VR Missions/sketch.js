@@ -3,57 +3,60 @@
 // 2024-11-21
 
 let titleScreen;
-let solidSnake;
-let sprites;
+let gameOver;
+let missionFailed;
+let solidSnakeStart = [];
+let nSolidSnake = [];
+let nESolidSnake = [];
+let eSolidSnake = [];
+let sESolidSnake = [];
+let sSolidSnake = [];
+let sWSolidSnake = [];
+let wSolidSnake = [];
+let nWSolidSnake = [];
 let playerX;
 let playerY;
 
 function preload()
 {
-  titleScreen = loadImage("assets/Title Screen.png");
+  titleScreen = loadImage("assets/New Sprite Frames/Title Screen.png");
+  gameOver = loadImage("assets/New Sprite Frames/Game Over.png");
+  missionFailed = loadImage("assets/New Sprite Frames/Mission Failed.png");
   for (let i = 1; i < 34; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Spawn Animation" + i + ".png"));
+    solidSnakeStart.push(loadImage("assets/New Sprite Frames/Solid Snake Spawn" + i + ".png"));
   }
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North-East Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle East Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South-East Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle South-West Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle West Animation.png");
-  solidSnake = loadImage("assets/New Sprite Frames/Solid Snake Idle North-West Animation.png");
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run North Animation" + i + ".png"));
+    nSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake North" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run North-East Animation" + i + ".png"));
+    nESolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake North-East" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run East Animation" + i + ".png"));
+    eSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake East" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run South-East Animation" + i + ".png"));
+    sESolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake South-East" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run South Animation" + i + ".png"));
+    sSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake South" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run South-West Animation" + i + ".png"));
+    sWSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake South-West" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run West Animation" + i + ".png"));
+    wSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake West" + i + ".png"));
   }
-  for (let i = 1; i < 8; i++)
+  for (let i = 0; i < 8; i++)
   {
-    sprites.push(loadImage("assets/New Sprite Frames/Solid Snake Run North-West Animation" + i + ".png"));
+    nWSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake North-West" + i + ".png"));
   }
 }
 
@@ -66,16 +69,22 @@ function draw()
 {
   background(110);
   image(titleScreen, 0, 0);
+  if(keyPressed(keyCode === 13)) //Enter Key
+  {
+
+  }
 }
 
 function keyPressed()
 {
   if(keyCode === 87) //W Key
   {
+    image(nSolidSnake[0], 0, 0);
     playerY++;
   }
   if(keyCode === 65) //A Key
   {
+    image(wSolidSnake[0], 0, 0);
     playerX--;
   }
   if(keyCode === 83) //S Key

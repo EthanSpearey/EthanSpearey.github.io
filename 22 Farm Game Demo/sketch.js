@@ -74,7 +74,6 @@ function keyPressed()
         playerX--;
       }
     }
-    
   }
 }
 
