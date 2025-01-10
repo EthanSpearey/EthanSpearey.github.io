@@ -19,7 +19,11 @@ let playerY;
 
 function preload()
 {
-  titleScreen = loadImage("assets/New Sprite Frames/Title Screen.png");
+  for (let i = 1; i < 6; i++)
+  {
+    titleScreen.push(loadImage("assets/New Sprite Frames/Title Screen" + i +".png"));
+  }
+  titleScreen = loadImage("assets/New Sprite Frames/Title Screen1.png");
   gameOver = loadImage("assets/New Sprite Frames/Game Over.png");
   missionFailed = loadImage("assets/New Sprite Frames/Mission Failed.png");
   for (let i = 1; i < 34; i++)
@@ -68,10 +72,13 @@ function setup()
 function draw()
 {
   background(110);
-  image(titleScreen, 0, 0);
   if(keyPressed(keyCode === 13)) //Enter Key
   {
-
+    image(gameOver, 0, 0);
+  }
+  else
+  {
+    image(titleScreen[1], 0, 0);
   }
 }
 
@@ -89,10 +96,12 @@ function keyPressed()
   }
   if(keyCode === 83) //S Key
   {
+    image(sSolidSnake[0], 0, 0);
     playerY--;
   }
   if(keyCode === 68) //D Key
   {
+    image(eSolidSnake[0], 0, 0);
     playerX++;
   }
 }
