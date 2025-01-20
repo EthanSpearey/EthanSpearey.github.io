@@ -3,27 +3,32 @@
 // 2024-11-21
 
 let titleScreen;
+let titleScreenx4;
+let titleScreenx8;
 let gameOver;
 let missionFailed;
 let solidSnakeStart = [];
+let solidSnakeState = 0; //0 = Idle South | 1 = Run South | 2 = Punch South | 3 = Idle South-West | 4 = Run South-West | 5 = Punch South-West | 6 = Idle West | 7 = Run West | 8 = Punch West | 9 = Idle North-West | 10 = Run North-West | 11 = Punch North-West | 12 = Idle North | 13 = Run North | 14 = Punch North | 15 = Idle North-East | 16 = Run North-East | 17 = Punch North-East | 18 = Idle East | 19 = Run East | 20 = Punch East | 21 = Idle South-East | 22 = Run South-East | 23 = Punch South-East
+let idleSouthIndex = 0; let runSouthIndex = 0;
 let nSolidSnake = [];
 let nESolidSnake = [];
 let eSolidSnake = [];
 let sESolidSnake = [];
-let sSolidSnake = [];
+let sSolidSnakeIdle = [];
+let sSolidSnakeRun = [];
 let sWSolidSnake = [];
 let wSolidSnake = [];
 let nWSolidSnake = [];
 let playerX;
 let playerY;
+let vrMission = 1;
 
 function preload()
 {
-  for (let i = 1; i < 6; i++)
-  {
-    titleScreen.push(loadImage("assets/New Sprite Frames/Title Screen" + i +".png"));
-  }
-  titleScreen = loadImage("assets/New Sprite Frames/Title Screen1.png");
+  titleScreen = loadImage("assets/New Sprite Frames/Title Screen.png");
+  titleScreenx4 = loadImage("assets/New Sprite Frames/Title Screen x4.png");
+  titleScreenx8 = loadImage("assets/New Sprite Frames/Title Screen x8.png");
+  vrMission = loadImage("assets/New Sprite Frames/VR Mission 1.png");
   gameOver = loadImage("assets/New Sprite Frames/Game Over.png");
   missionFailed = loadImage("assets/New Sprite Frames/Mission Failed.png");
   for (let i = 1; i < 34; i++)
@@ -46,9 +51,10 @@ function preload()
   {
     sESolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake South-East" + i + ".png"));
   }
-  for (let i = 0; i < 8; i++)
+  sSolidSnakeIdle.push(loadImage("assets/New Sprite Frames/Solid Snake South.png"));
+  for (let i = 1; i < 8; i++)
   {
-    sSolidSnake.push(loadImage("assets/New Sprite Frames/Solid Snake South" + i + ".png"));
+    sSolidSnakeRun.push(loadImage("assets/New Sprite Frames/Solid Snake South" + i + ".png"));
   }
   for (let i = 0; i < 8; i++)
   {
@@ -67,41 +73,41 @@ function preload()
 function setup()
 {
   createCanvas(160, 144);
+  imageMode(CENTER);
+}
+
+function keyPressed()
+{
+  if(solidSnakeState === 0)
+  {
+    solidSnakeState === 1;
+  }
+  else
+  {
+    solidSnakeState === 0;
+  }
 }
 
 function draw()
 {
   background(110);
-  if(keyPressed(keyCode === 13)) //Enter Key
-  {
-    image(gameOver, 0, 0);
-  }
-  else
-  {
-    image(titleScreen[1], 0, 0);
-  }
-}
+  image(vrMission, width/2, height/2, /*160, 144*/);
 
-function keyPressed()
-{
-  if(keyCode === 87) //W Key
+  //Snake's Code
+  if(solidSnakeState === 0) //Idle
   {
-    image(nSolidSnake[0], 0, 0);
-    playerY++;
+    image(sSolidSnakeIdle[solidSnakeState], width/2, height/2);
   }
-  if(keyCode === 65) //A Key
+  else if(solidSnakeState === 1) //Run
   {
-    image(wSolidSnake[0], 0, 0);
-    playerX--;
-  }
-  if(keyCode === 83) //S Key
-  {
-    image(sSolidSnake[0], 0, 0);
-    playerY--;
-  }
-  if(keyCode === 68) //D Key
-  {
-    image(eSolidSnake[0], 0, 0);
-    playerX++;
+    image(sSolidSnakeRun[runSouthIndex], width/2, height/2);
+    if(frameCount % 10 === 0)
+    {
+      runSouthIndex++;
+      if(runSouthIndex > 7)
+      {
+        runSouthIndex = 0;
+      }
+    }
   }
 }

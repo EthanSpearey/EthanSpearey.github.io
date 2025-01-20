@@ -29,9 +29,9 @@ function drawTree(x1, y1, angle, depth)
     let y2 = y1 - (sin(radians(angle))*depth*scale); //using trig ratios. Get shorter based on depth
     drawLine(x1, y1, x2, y2, depth);
     //for a 3-branch tree:
-    drawTree(x2, y2, angle-18, depth-1);
-    drawTree(x2, y2, angle+0, depth-1);
-    drawTree(x2, y2, angle+18, depth-1);
+    drawTree(x2, y2, angle-mouseY, depth-1);
+    drawTree(x2, y2, angle+mouseY, depth-1);
+    drawTree(x2, y2, angle+mouseY, depth-1);
 
     fill(random(255), random(255), random(255));
     circle(x1, y1, random(10, 25));
